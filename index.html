@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Hall Drilling Employee Survey 2026</title>
+<meta property="og:title" content="Hall Drilling Employee Survey 2026">
+<meta property="og:description" content="100% anonymous. About 6 minutes. Your voice makes Hall Drilling better and safer.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://adminenmhub.github.io/hall-survey-2026/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230B0B0C'/%3E%3Cellipse cx='32' cy='32' rx='26' ry='14' fill='none' stroke='%23C8102E' stroke-width='4'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='22' fill='%23FFD700'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0B0C;
+    --yellow:#FFD700;
+    --yellow-deep:#E8B90A;
+    --red:#C8102E;
+    --bg:#F1F2F4;
+    --card:#FFFFFF;
+    --line:#D8DBDF;
+    --muted:#5B6168;
+    --good:#2E8B3A;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    font-family:'Barlow',system-ui,-apple-system,sans-serif;
+    background:var(--bg);color:var(--ink);
+    font-size:18px;line-height:1.45;
+    display:flex;flex-direction:column;min-height:100dvh;
+  }
+  .disp{font-family:'Barlow Condensed','Barlow',sans-serif}
+
+  /* ── Brand header ─────────────────────────────── */
+  header{
+    background:var(--ink);color:var(--yellow);
+    padding:calc(10px + env(safe-area-inset-top)) 16px 10px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .logo{flex:0 0 auto;display:block}
+  .hd-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;letter-spacing:2.5px;line-height:1.15;text-transform:uppercase}
+  .hd-sub{font-size:11px;letter-spacing:3px;color:#cfcfcf;font-weight:400;text-transform:uppercase}
+  .paper-badge{margin-left:auto;background:var(--yellow);color:var(--ink);font-weight:700;font-size:11px;letter-spacing:1.5px;padding:4px 8px;border-radius:6px;display:none}
+  body.paper .paper-badge{display:block}
+
+  /* ── Hazard-stripe progress (signature) ───────── */
+  .progress-wrap{background:var(--ink);padding:0 16px 14px;display:none}
+  body.in-questions .progress-wrap{display:block}
+  .progress-meta{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+  .q-count{color:#fff;font-family:'Barlow Condensed';font-weight:700;font-size:15px;letter-spacing:1.5px}
+  .section-chip{color:var(--yellow);font-family:'Barlow Condensed';font-weight:700;font-size:14px;letter-spacing:2.5px;text-transform:uppercase}
+  .track{height:12px;border-radius:7px;background:#2A2B2E;overflow:hidden}
+  .fill{
+    height:100%;width:0%;border-radius:7px;
+    background:repeating-linear-gradient(-45deg,var(--yellow) 0 12px,var(--ink) 12px 24px);
+    outline:1px solid var(--yellow-deep);
+    transition:width .35s ease;
+  }
+
+  /* ── Main stage ───────────────────────────────── */
+  main{flex:1;display:flex;flex-direction:column;padding:18px 16px calc(20px + env(safe-area-inset-bottom));max-width:520px;width:100%;margin:0 auto}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;box-shadow:0 1px 3px rgba(11,11,12,.06)}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;min-height:40px;margin-bottom:8px}
+  .btn-back{
+    display:inline-flex;align-items:center;gap:6px;background:none;border:none;
+    font:600 16px 'Barlow';color:var(--muted);padding:8px 10px 8px 0;cursor:pointer;
+  }
+  .btn-back svg{width:20px;height:20px}
+  .btn-hear{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#fff;border:2px solid var(--ink);border-radius:999px;
+    font:700 15px 'Barlow';color:var(--ink);padding:8px 14px;cursor:pointer;
+  }
+  .btn-hear svg{width:18px;height:18px}
+  .btn-hear.speaking{background:var(--yellow)}
+
+  .q-text{font-family:'Barlow Condensed';font-weight:700;font-size:26px;line-height:1.22;margin:6px 0 4px}
+  .q-note{color:var(--muted);font-size:16px;margin-bottom:4px}
+  .answers{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+
+  /* Rating grid */
+  .anchors{display:flex;justify-content:space-between;font-weight:700;font-size:14px;color:var(--muted);margin-bottom:2px}
+  .anchors .lo{color:#B3261E}.anchors .hi{color:var(--good)}
+  .rate-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .rate-btn{
+    border:none;border-radius:14px;min-height:64px;
+    font:800 26px 'Barlow Condensed';color:#fff;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .rate-btn:active{transform:scale(.94)}
+  .rate-btn.dark-text{color:#241A00}
+  .rate-btn.picked{outline:4px solid var(--ink);outline-offset:2px}
+  .thumb-row{display:flex;justify-content:space-between;margin-top:4px}
+  .thumb-row svg{width:26px;height:26px}
+
+  /* Choice buttons */
+  .choice-btn{
+    width:100%;min-height:62px;text-align:left;
+    background:#fff;border:2px solid var(--line);border-radius:14px;
+    font:600 19px 'Barlow';color:var(--ink);padding:14px 16px;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    transition:transform .12s ease;
+  }
+  .choice-btn:active{transform:scale(.98)}
+  .choice-btn.picked{background:var(--yellow);border-color:var(--ink);font-weight:700}
+  .choice-btn .tick{width:24px;height:24px;flex:0 0 auto;visibility:hidden}
+  .choice-btn.picked .tick{visibility:visible}
+
+  /* Text answers */
+  textarea, input[type=text], select{
+    width:100%;font:400 19px 'Barlow';color:var(--ink);
+    border:2px solid var(--line);border-radius:14px;padding:14px;background:#fff;
+  }
+  textarea{min-height:130px;resize:vertical}
+  textarea:focus, input:focus, select:focus{outline:3px solid var(--yellow);border-color:var(--ink)}
+  .mic-hint{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:15px}
+  .mic-hint svg{width:18px;height:18px;flex:0 0 auto}
+  .hw-row{display:flex;gap:12px}
+  .hw-row select, .hw-row .win{flex:1}
+  .win{position:relative}
+  .win input{padding-right:56px}
+  .win .unit{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:700}
+
+  /* Primary / secondary actions */
+  .btn-primary{
+    width:100%;min-height:60px;border:none;border-radius:14px;cursor:pointer;
+    background:var(--yellow);color:var(--ink);
+    font:800 21px 'Barlow Condensed';letter-spacing:2px;text-transform:uppercase;
+    box-shadow:0 2px 0 var(--yellow-deep);
+  }
+  .btn-primary:active{transform:translateY(1px)}
+  .btn-primary[disabled]{opacity:.55}
+  .btn-dark{background:var(--ink);color:var(--yellow);box-shadow:none}
+  .btn-skip{
+    width:100%;background:none;border:none;color:var(--muted);
+    font:600 17px 'Barlow';padding:14px;cursor:pointer;text-decoration:underline;
+  }
+
+  /* Welcome / trust screen */
+  .welcome-hero{background:var(--ink);border-radius:var(--radius);padding:28px 20px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .welcome-hero .stripe{position:absolute;left:0;right:0;bottom:0;height:10px;background:repeating-linear-gradient(-45deg,var(--yellow) 0 12px,var(--ink) 12px 24px)}
+  .welcome-hero h1{font-family:'Barlow Condensed';font-weight:800;font-size:34px;letter-spacing:1px;color:var(--yellow);margin-top:14px}
+  .welcome-hero p{color:#D9DADB;font-size:17px;margin-top:6px}
+  .trust{display:flex;flex-direction:column;gap:14px;margin:18px 0}
+  .trust-row{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+  .trust-row svg{width:28px;height:28px;flex:0 0 auto;margin-top:2px}
+  .trust-row b{display:block;font-size:18px}
+  .trust-row span{color:var(--muted);font-size:15.5px}
+  .fine{color:var(--muted);font-size:14.5px;text-align:center;margin:10px 4px 16px}
+
+  /* Send + thank you */
+  .center{text-align:center}
+  .big-check{width:88px;height:88px;margin:8px auto 12px;display:block}
+  .sent-h{font-family:'Barlow Condensed';font-weight:800;font-size:34px}
+  .err{background:#FBE9EA;border:2px solid var(--red);color:#7c0a1c;border-radius:12px;padding:12px 14px;font-size:16px;display:none}
+
+  .spin{width:22px;height:22px;border:3px solid rgba(11,11,12,.25);border-top-color:var(--ink);border-radius:50%;display:inline-block;vertical-align:-5px;animation:sp .8s linear infinite;margin-right:8px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+
+  footer{padding:8px 16px calc(12px + env(safe-area-inset-bottom));text-align:center;color:#9aa0a6;font-size:12.5px}
+
+  :focus-visible{outline:3px solid var(--red);outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;animation:none !important}
+  }
+  @media (min-width:520px){ .q-text{font-size:29px} }
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="logo" width="112" height="44" viewBox="0 0 112 44" aria-label="Hall Drilling LLC">
+    <ellipse cx="56" cy="16" rx="52" ry="14" fill="none" stroke="#C8102E" stroke-width="3"/>
+    <text x="56" y="24" text-anchor="middle" font-family="Barlow Condensed, Arial Black, sans-serif" font-weight="800" font-size="24" letter-spacing="6" fill="#FFD700">HALL</text>
+    <text x="56" y="40" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-weight="600" font-size="9.5" letter-spacing="4.5" fill="#FFD700">DRILLING LLC</text>
+  </svg>
+  <div>
+    <div class="hd-title">Employee Survey 2026</div>
+    <div class="hd-sub">Anonymous &middot; Ellenboro, WV</div>
+  </div>
+  <div class="paper-badge">PAPER ENTRY</div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-meta">
+    <span class="q-count" id="qCount"></span>
+    <span class="section-chip" id="sectionChip"></span>
+  </div>
+  <div class="track"><div class="fill" id="fill"></div></div>
+</div>
+
+<main id="app" aria-live="polite"></main>
+
+<footer>Hall Drilling, LLC &middot; HSSE Department &middot; Responses are anonymous and combined with paper surveys.</footer>
+
+<script>
+/* ══════════════════════════ CONFIG ══════════════════════════ */
+const SB_URL   = 'https://zkexebxlxdzlsottepll.supabase.co';
+const SB_KEY   = 'sb_publishable_BRwfGT4QTJyuC8rasxLdoA_5ZSmQK0Y';
+const SB_TABLE = 'employee_survey_2026';
+const DRAFT_KEY = 'hd_survey_2026_draft';
+const DONE_KEY  = 'hd_survey_2026_done';
+const PAPER = new URLSearchParams(location.search).get('source') === 'paper';
+if (PAPER) document.body.classList.add('paper');
+
+const DIVISIONS = ['Air/Rig','Dump Truck','Office','Roustabout','Shop','Water Truck','Winch Truck'];
+const FREQ4 = ['Daily','A couple times a week','A couple times a month','Never'];
+
+const QUESTIONS = [
+ {n:1,  s:'Safety', t:'rating', q:'I have been properly trained on the hazards associated with my job tasks.'},
+ {n:2,  s:'Safety', t:'rating', q:'I am NOT pressured to ignore safety precautions to complete a task in a timely manner.'},
+ {n:3,  s:'Safety', t:'rating', q:'I believe employees report near misses, even when no harm is done.'},
+ {n:4,  s:'Safety', t:'rating', q:'Employees report issues/incidents, without fear of negative repercussions.'},
+ {n:5,  s:'Safety', t:'rating', q:'I feel as though my safety is a priority at Hall Drilling.'},
+ {n:6,  s:'Safety', t:'rating', q:'I think completing a JSA aids in my understanding of the hazards associated with my job.'},
+ {n:7,  s:'Safety', t:'rating', q:'I feel my safety concerns are taken seriously.'},
+ {n:8,  s:'Safety', t:'rating', q:'Appropriate action is taken when an employee reports a safety concern.'},
+ {n:9,  s:'Safety', t:'rating', q:'Safety standards and SOPs are enforced equally among employees.'},
+ {n:10, s:'Safety', t:'rating', q:"How do you rate Hall Drilling's Safety Program compared to other contractors?", anchors:['Worst','Best']},
+ {n:11, s:'Safety', t:'text',   q:'Can you list any dangers/hazards of your job that you think are not being tracked or managed by the safety team?'},
+ {n:12, s:'Safety', t:'choice', q:'How long ago was the last safety meeting where a supervisor/safety person administered the meeting?',
+        opts:['Within the last week','Within the last month','Within the last 6 months','Never']},
+ {n:13, s:'Safety', t:'choice', q:'Do you read the WhatsApp alerts that are sent out?', opts:['Never seen them','Occasionally','Every Time']},
+ {n:14, s:'Safety', t:'text',   q:'What would you change about your pre job safety meetings to make them more effective?'},
+ {n:15, s:'Safety', t:'choice', q:'What is your preferred way of receiving safety information?',
+        opts:['Pre Job Safety Meeting','Paper Bulletin','WhatsApp Message']},
+ {n:16, s:'Supervisors', t:'rating', q:'My supervisor ensures that I complete my job under safe working conditions.'},
+ {n:17, s:'Supervisors', t:'rating', q:'Supervisors and managers are effective at enforcing SOPs.'},
+ {n:18, s:'Supervisors', t:'rating', q:'I feel that I can exercise my right to stop work, without retaliation from my supervisor.'},
+ {n:19, s:'Supervisors', t:'rating', q:'I receive safety performance feedback from my supervisor.'},
+ {n:20, s:'Supervisors', t:'rating', q:'There are regular conversations about safety related matters between employees and supervisors.'},
+ {n:21, s:'Supervisors', t:'rating', q:'I regularly see my supervisor out in the field.'},
+ {n:22, s:'Management', t:'rating', q:'I feel employees are effectively disciplined when they violate safety policies.'},
+ {n:23, s:'Management', t:'rating', q:'I believe that I am paid a fair wage compared to other companies in the area.'},
+ {n:24, s:'Management', t:'rating', q:'After an incident occurs, management addresses the issue and shares how it could have been avoided.'},
+ {n:25, s:'Management', t:'text', q:'What could management do to increase safety in the workplace?'},
+ {n:26, s:'Management', t:'text', q:'What other benefits or services would you like to see Hall Drilling offer?'},
+ {n:27, s:'Management', t:'text', q:'What is your number one complaint about Hall Drilling?'},
+ {n:28, s:'Management', t:'text', q:'What is your favorite thing about working at Hall Drilling?'},
+ {n:29, s:'Health & Wellness', t:'rating', q:'I feel that Hall Drilling focuses appropriately on mental health.'},
+ {n:30, s:'Health & Wellness', t:'rating', q:'I would like more assistance on financial planning such as saving for the future and 401K.'},
+ {n:31, s:'Health & Wellness', t:'rating', q:'I feel that the health insurance offered by Hall Drilling adequately meets my needs.'},
+ {n:32, s:'Health & Wellness', t:'choice', q:'I read the monthly Health and Wellness Newsletters that Hall Drilling puts out.',
+        opts:['Never seen them','Occasionally','Every Time']},
+ {n:33, s:'Health & Wellness', t:'choice', q:'I currently smoke tobacco.', opts:FREQ4},
+ {n:34, s:'Health & Wellness', t:'choice', q:'I currently rub tobacco.', opts:FREQ4},
+ {n:35, s:'Health & Wellness', t:'choice', q:'I drink energy drinks.', opts:FREQ4},
+ {n:36, s:'Health & Wellness', t:'choice', q:'How many bottles of water (approx. 16 oz) do you drink on average PER DAY?',
+        note:'Coffee does not count.', opts:['None','One','Two-Three','Four or more']},
+ {n:37, s:'Health & Wellness', t:'choice', q:'I run or walk at least 1 mile.',
+        opts:['Daily','A couple times a week','Once a month','A couple times a year','Never']},
+ {n:38, s:'Health & Wellness', t:'height', q:'What is your height?'},
+ {n:39, s:'Health & Wellness', t:'weight', q:'What is your weight?', note:'Used only to figure the average employee weight. No one is identified.'},
+ {n:40, s:'Health & Wellness', t:'text', q:'Are there any activities or information that Hall Drilling could provide to improve your health or wellbeing?'}
+];
+
+const RATE_COLORS = [
+  ['#B3261E','#fff'],['#C62828','#fff'],['#D9542B','#fff'],['#E8722C','#fff'],['#F0932B','#241A00'],
+  ['#E9B824','#241A00'],['#C9C22F','#241A00'],['#8BBF3C','#fff'],['#57A63B','#fff'],['#2E8B3A','#fff']
+];
+
+/* ══════════════════════════ STATE ══════════════════════════ */
+// Steps: 0=welcome, 1=division, 2..41=questions, 42=send
+const FIRST_Q = 2, LAST_Q = FIRST_Q + QUESTIONS.length - 1, SEND = LAST_Q + 1;
+let step = PAPER ? 1 : 0;
+let answers = { division: null };
+let advanceToken = 0;
+
+try {
+  const d = JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null');
+  if (d && d.answers) { answers = d.answers; step = d.step; }
+  if (!PAPER && !d && localStorage.getItem(DONE_KEY)) step = 99; // already-done screen
+} catch(e){}
+
+function saveDraft(){ try{ localStorage.setItem(DRAFT_KEY, JSON.stringify({answers, step})); }catch(e){} }
+
+/* ══════════════════════════ HELPERS ══════════════════════════ */
+const app = document.getElementById('app');
+const ICONS = {
+  lock:'<svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2" fill="#FFD700" stroke="#0B0B0C"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>',
+  clock:'<svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2"><circle cx="12" cy="12" r="9" fill="#FFD700"/><path d="M12 7v5l3 3"/></svg>',
+  skip:'<svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2"><circle cx="12" cy="12" r="9" fill="#FFD700"/><path d="M9 8l5 4-5 4"/></svg>',
+  speaker:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10v4h3l4 4V6L7 10H4z" fill="currentColor"/><path d="M15 9a4 4 0 0 1 0 6M17.5 6.5a8 8 0 0 1 0 11"/></svg>',
+  back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg>',
+  mic:'<svg viewBox="0 0 24 24" fill="none" stroke="#5B6168" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
+  tick:'<svg class="tick" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="3"><path d="M4 12l6 6 10-12"/></svg>',
+  down:'<svg viewBox="0 0 24 24" fill="#B3261E"><path d="M10 3h4l-1 8h4.5c1 0 1.6 1.1 1 2l-6 8c-.5.7-1.5.7-2 0l-6-8c-.6-.9 0-2 1-2H11l-1-8z" transform="rotate(180 12 12)"/></svg>',
+  up:'<svg viewBox="0 0 24 24" fill="#2E8B3A"><path d="M10 3h4l-1 8h4.5c1 0 1.6 1.1 1 2l-6 8c-.5.7-1.5.7-2 0l-6-8c-.6-.9 0-2 1-2H11l-1-8z" transform="rotate(180 12 12)"/></svg>'
+};
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function speak(text, btn){
+  try{
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = 0.95;
+    if (btn){ btn.classList.add('speaking'); u.onend = u.onerror = ()=>btn.classList.remove('speaking'); }
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+function hearBtn(text){
+  return `<button class="btn-hear" type="button" data-say="${esc(text)}" aria-label="Read this question out loud">${ICONS.speaker} Hear it</button>`;
+}
+
+function go(n){ step = n; advanceToken++; saveDraft(); render(); window.scrollTo(0,0); }
+function next(){ go(Math.min(step+1, SEND)); }
+function back(){ go(Math.max(step-1, PAPER ? 1 : 0)); }
+function autoAdvance(){
+  const t = ++advanceToken;
+  setTimeout(()=>{ if (t === advanceToken) next(); }, 420);
+}
+
+/* ══════════════════════════ RENDER ══════════════════════════ */
+function render(){
+  try{ speechSynthesis.cancel(); }catch(e){}
+  const inQ = step >= FIRST_Q && step <= LAST_Q;
+  document.body.classList.toggle('in-questions', inQ);
+  if (inQ){
+    const idx = step - FIRST_Q;
+    document.getElementById('qCount').textContent = 'QUESTION ' + QUESTIONS[idx].n + ' OF 40';
+    document.getElementById('sectionChip').textContent = QUESTIONS[idx].s;
+    document.getElementById('fill').style.width = Math.round(idx/QUESTIONS.length*100) + '%';
+  }
+
+  if (step === 99) return renderAlreadyDone();
+  if (step === 0)  return renderWelcome();
+  if (step === 1)  return renderDivision();
+  if (step === SEND) return renderSend();
+  renderQuestion(QUESTIONS[step - FIRST_Q]);
+}
+
+function renderWelcome(){
+  const sayText = 'Hall Drilling Employee Survey 2026. This survey is 100 percent anonymous. No name, no phone number, no login. It takes about 6 minutes. You can skip any question. Your honest answers help make Hall Drilling a better and safer place to work. Tap the big yellow Start button when you are ready.';
+  app.innerHTML = `
+    <div class="welcome-hero">
+      <h1>YOUR VOICE MAKES<br>HALL DRILLING BETTER</h1>
+      <p>The same survey as the paper copy &mdash; now on your phone.</p>
+      <div class="stripe"></div>
+    </div>
+    <div class="trust">
+      <div class="trust-row">${ICONS.lock}<div><b>100% Anonymous</b><span>No name. No phone number. No login. Nobody &mdash; including supervisors &mdash; can see who said what.</span></div></div>
+      <div class="trust-row">${ICONS.clock}<div><b>About 6 minutes</b><span>One question at a time. Big buttons. Your progress saves if you get interrupted.</span></div></div>
+      <div class="trust-row">${ICONS.skip}<div><b>Skip anything</b><span>If a question doesn't apply to your job or you'd rather not answer, just skip it.</span></div></div>
+    </div>
+    <div style="display:flex;justify-content:center;margin-bottom:14px">${hearBtn(sayText)}</div>
+    <button class="btn-primary" id="startBtn">Start Survey</button>
+    <p class="fine">Your answers go straight into one combined, anonymous count with the paper surveys. Leadership sees totals &mdash; never individuals.</p>`;
+  document.getElementById('startBtn').onclick = ()=>go(1);
+  wireHear();
+}
+
+function renderDivision(){
+  const sayText = 'Which division do you primarily work in? Tap one: ' + DIVISIONS.join(', ') + '.';
+  app.innerHTML = `
+    <div class="topbar">
+      ${PAPER ? '<span></span>' : `<button class="btn-back" id="backBtn">${ICONS.back} Back</button>`}
+      ${hearBtn(sayText)}
+    </div>
+    <div class="card">
+      <div class="q-text">Which division do you primarily work in?</div>
+      <div class="answers">
+        ${DIVISIONS.map(d=>`<button class="choice-btn ${answers.division===d?'picked':''}" data-v="${esc(d)}">${esc(d)} ${ICONS.tick}</button>`).join('')}
+      </div>
+      <button class="btn-skip" id="skipBtn">Skip this question</button>
+    </div>`;
+  const bb = document.getElementById('backBtn'); if (bb) bb.onclick = back;
+  document.getElementById('skipBtn').onclick = ()=>{ answers.division = null; next(); };
+  app.querySelectorAll('.choice-btn').forEach(b=>b.onclick = ()=>{
+    answers.division = b.dataset.v; saveDraft();
+    app.querySelectorAll('.choice-btn').forEach(x=>x.classList.remove('picked'));
+    b.classList.add('picked'); autoAdvance();
+  });
+  wireHear();
+}
+
+function renderQuestion(Q){
+  const key = 'q' + Q.n;
+  let body = '', sayText = Q.q + (Q.note ? '. ' + Q.note : '');
+
+  if (Q.t === 'rating'){
+    const [lo,hi] = Q.anchors || ['Strongly Disagree','Strongly Agree'];
+    sayText += `. Tap a number from 1 to 10. 1 means ${lo}. 10 means ${hi}.`;
+    body = `
+      <div class="anchors"><span class="lo">1 = ${esc(lo)}</span><span class="hi">10 = ${esc(hi)}</span></div>
+      <div class="rate-grid">
+        ${RATE_COLORS.map((c,i)=>{
+          const v=i+1, picked = answers[key]===v ? 'picked':'';
+          return `<button class="rate-btn ${c[1]!=='#fff'?'dark-text':''} ${picked}" style="background:${c[0]};color:${c[1]}" data-v="${v}" aria-label="${v} out of 10">${v}</button>`;
+        }).join('')}
+      </div>
+      <div class="thumb-row">${ICONS.down}${ICONS.up}</div>`;
+  }
+  else if (Q.t === 'choice'){
+    sayText += '. Tap one: ' + Q.opts.join(', ') + '.';
+    body = Q.opts.map(o=>`<button class="choice-btn ${answers[key]===o?'picked':''}" data-v="${esc(o)}">${esc(o)} ${ICONS.tick}</button>`).join('');
+  }
+  else if (Q.t === 'text'){
+    sayText += '. Type your answer, or tap the microphone on your keyboard to talk instead of type. You can also skip.';
+    body = `
+      <textarea id="txt" placeholder="Type here... (or skip)">${esc(answers[key]||'')}</textarea>
+      <div class="mic-hint">${ICONS.mic} Tip: tap the microphone on your keyboard to talk instead of type.</div>
+      <button class="btn-primary" id="nextBtn">Next</button>`;
+  }
+  else if (Q.t === 'height'){
+    sayText += '. Pick feet and inches, then tap Next.';
+    const cur = answers[key] || '';
+    const m = cur.match(/(\d+)'(\d+)/) || [];
+    const ftOpts = [4,5,6,7].map(f=>`<option value="${f}" ${m[1]==f?'selected':''}>${f} ft</option>`).join('');
+    const inOpts = Array.from({length:12},(_,i)=>`<option value="${i}" ${m[2]==i?'selected':''}>${i} in</option>`).join('');
+    body = `
+      <div class="hw-row">
+        <select id="ft" aria-label="Feet"><option value="">Feet</option>${ftOpts}</select>
+        <select id="in" aria-label="Inches"><option value="">Inches</option>${inOpts}</select>
+      </div>
+      <button class="btn-primary" id="nextBtn">Next</button>`;
+  }
+  else if (Q.t === 'weight'){
+    sayText += '. Type your weight in pounds, then tap Next.';
+    body = `
+      <div class="win">
+        <input type="text" id="wt" inputmode="numeric" pattern="[0-9]*" maxlength="3" placeholder="e.g. 200" value="${esc(answers[key]||'')}">
+        <span class="unit">lbs</span>
+      </div>
+      <button class="btn-primary" id="nextBtn">Next</button>`;
+  }
+
+  app.innerHTML = `
+    <div class="topbar">
+      <button class="btn-back" id="backBtn">${ICONS.back} Back</button>
+      ${hearBtn(sayText)}
+    </div>
+    <div class="card">
+      <div class="q-text">${esc(Q.q)}</div>
+      ${Q.note ? `<div class="q-note">${esc(Q.note)}</div>` : ''}
+      <div class="answers">${body}</div>
+      <button class="btn-skip" id="skipBtn">Skip this question</button>
+    </div>`;
+
+  document.getElementById('backBtn').onclick = back;
+  document.getElementById('skipBtn').onclick = ()=>{ delete answers[key]; saveDraft(); next(); };
+
+  if (Q.t === 'rating'){
+    app.querySelectorAll('.rate-btn').forEach(b=>b.onclick = ()=>{
+      answers[key] = parseInt(b.dataset.v,10); saveDraft();
+      app.querySelectorAll('.rate-btn').forEach(x=>x.classList.remove('picked'));
+      b.classList.add('picked'); autoAdvance();
+    });
+  }
+  if (Q.t === 'choice'){
+    app.querySelectorAll('.choice-btn').forEach(b=>b.onclick = ()=>{
+      answers[key] = b.dataset.v; saveDraft();
+      app.querySelectorAll('.choice-btn').forEach(x=>x.classList.remove('picked'));
+      b.classList.add('picked'); autoAdvance();
+    });
+  }
+  if (Q.t === 'text'){
+    document.getElementById('nextBtn').onclick = ()=>{
+      const v = document.getElementById('txt').value.trim();
+      if (v) answers[key] = v; else delete answers[key];
+      saveDraft(); next();
+    };
+  }
+  if (Q.t === 'height'){
+    document.getElementById('nextBtn').onclick = ()=>{
+      const f = document.getElementById('ft').value, i = document.getElementById('in').value;
+      if (f !== '' && i !== '') answers[key] = `${f}'${i}"`; else delete answers[key];
+      saveDraft(); next();
+    };
+  }
+  if (Q.t === 'weight'){
+    document.getElementById('nextBtn').onclick = ()=>{
+      const v = document.getElementById('wt').value.replace(/\D/g,'');
+      if (v) answers[key] = v; else delete answers[key];
+      saveDraft(); next();
+    };
+  }
+  wireHear();
+}
+
+function renderSend(){
+  const count = QUESTIONS.filter(q=>answers['q'+q.n] !== undefined && answers['q'+q.n] !== null).length;
+  const sayText = `You answered ${count} of 40 questions. Tap the big yellow button to send your answers anonymously. Once sent, your answers cannot be traced back to you.`;
+  app.innerHTML = `
+    <div class="topbar">
+      <button class="btn-back" id="backBtn">${ICONS.back} Back</button>
+      ${hearBtn(sayText)}
+    </div>
+    <div class="card center">
+      <div class="q-text">Ready to send?</div>
+      <p style="margin:8px 0 4px">You answered <b>${count} of 40</b> questions.</p>
+      <p class="q-note">Your answers are 100% anonymous. Once sent, they cannot be traced back to you.</p>
+      <div class="answers">
+        <div class="err" id="err"></div>
+        <button class="btn-primary btn-dark" id="sendBtn">Send My Answers</button>
+        <button class="btn-skip" id="reviewBtn">Go back and change an answer</button>
+      </div>
+    </div>`;
+  document.getElementById('backBtn').onclick = back;
+  document.getElementById('reviewBtn').onclick = back;
+  document.getElementById('sendBtn').onclick = submit;
+  wireHear();
+}
+
+async function submit(){
+  const btn = document.getElementById('sendBtn');
+  const err = document.getElementById('err');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin"></span>Sending...';
+  err.style.display = 'none';
+
+  const payload = { source: PAPER ? 'paper' : 'digital' };
+  if (answers.division) payload.division = answers.division;
+  QUESTIONS.forEach(q=>{
+    const v = answers['q'+q.n];
+    if (v !== undefined && v !== null && v !== '') payload['q'+q.n] = v;
+  });
+
+  try{
+    const r = await fetch(`${SB_URL}/rest/v1/${SB_TABLE}`, {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'apikey': SB_KEY,
+        'Authorization': 'Bearer ' + SB_KEY,
+        'Prefer':'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    try{ localStorage.removeItem(DRAFT_KEY); localStorage.setItem(DONE_KEY, new Date().toISOString()); }catch(e){}
+    renderThanks();
+  }catch(e){
+    btn.disabled = false;
+    btn.textContent = 'Send My Answers';
+    err.style.display = 'block';
+    err.textContent = "Couldn't send. Check your phone signal and tap Send again. Your answers are saved on this phone.";
+  }
+}
+
+function renderThanks(){
+  window.scrollTo(0,0);
+  document.body.classList.remove('in-questions');
+  const sayText = 'Thank you. Your answers were sent anonymously. Hall Drilling leadership will use them to make this a better and safer place to work.';
+  app.innerHTML = `
+    <div class="card center">
+      <svg class="big-check" viewBox="0 0 96 96"><circle cx="48" cy="48" r="44" fill="#2E8B3A"/><path d="M28 50l14 14 26-32" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="sent-h">THANK YOU</div>
+      <p style="margin:10px 0 4px">Your answers were sent <b>anonymously</b>.</p>
+      <p class="q-note">Hall Drilling leadership will use the combined results to make this a better and safer place to work.</p>
+      <div class="answers">
+        <div style="display:flex;justify-content:center">${hearBtn(sayText)}</div>
+        <button class="btn-primary" id="againBtn">${PAPER ? 'Enter Next Paper Survey' : 'Hand phone to a coworker &mdash; New survey'}</button>
+      </div>
+    </div>`;
+  document.getElementById('againBtn').onclick = ()=>{
+    answers = { division: null };
+    try{ localStorage.removeItem(DRAFT_KEY); localStorage.removeItem(DONE_KEY); }catch(e){}
+    go(PAPER ? 1 : 0);
+  };
+  wireHear();
+}
+
+function renderAlreadyDone(){
+  document.body.classList.remove('in-questions');
+  app.innerHTML = `
+    <div class="card center">
+      <svg class="big-check" viewBox="0 0 96 96"><circle cx="48" cy="48" r="44" fill="#2E8B3A"/><path d="M28 50l14 14 26-32" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="sent-h">ALREADY DONE ON THIS PHONE</div>
+      <p style="margin:10px 0 4px">A survey was already sent from this phone. Thank you!</p>
+      <p class="q-note">If a coworker wants to take the survey on this phone, tap below.</p>
+      <div class="answers">
+        <button class="btn-primary" id="againBtn">Start a survey for a coworker</button>
+      </div>
+    </div>`;
+  document.getElementById('againBtn').onclick = ()=>{
+    answers = { division: null };
+    try{ localStorage.removeItem(DRAFT_KEY); localStorage.removeItem(DONE_KEY); }catch(e){}
+    go(0);
+  };
+}
+
+function wireHear(){
+  app.querySelectorAll('.btn-hear').forEach(b=>{
+    b.onclick = ()=>speak(b.dataset.say, b);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
