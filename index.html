@@ -8,7 +8,7 @@
 <meta property="og:title" content="Hall Drilling Employee Survey 2026">
 <meta property="og:description" content="100% anonymous. About 6 minutes. Your voice makes Hall Drilling better and safer.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://adminenmhub.github.io/hall-survey-2026/og.png">
+<meta property="og:image" content="https://zkexebxlxdzlsottepll.supabase.co/storage/v1/object/public/survey-assets/og-v2.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230B0B0C'/%3E%3Cellipse cx='32' cy='32' rx='26' ry='14' fill='none' stroke='%23C8102E' stroke-width='4'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='22' fill='%23FFD700'%3EH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
   }
   .disp{font-family:'Barlow Condensed','Barlow',sans-serif}
 
-  /* ── Brand header ─────────────────────────────── */
+  /* ── Brand header ─────────────────────── */
   header{
     background:var(--ink);color:var(--yellow);
     padding:calc(10px + env(safe-area-inset-top)) 16px 10px;
@@ -62,7 +62,7 @@
     transition:width .35s ease;
   }
 
-  /* ── Main stage ───────────────────────────────── */
+  /* ── Main stage ───────────────────────── */
   main{flex:1;display:flex;flex-direction:column;padding:18px 16px calc(20px + env(safe-area-inset-bottom));max-width:520px;width:100%;margin:0 auto}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;box-shadow:0 1px 3px rgba(11,11,12,.06)}
 
@@ -176,11 +176,7 @@
 <body>
 
 <header>
-  <svg class="logo" width="112" height="44" viewBox="0 0 112 44" aria-label="Hall Drilling LLC">
-    <ellipse cx="56" cy="16" rx="52" ry="14" fill="none" stroke="#C8102E" stroke-width="3"/>
-    <text x="56" y="24" text-anchor="middle" font-family="Barlow Condensed, Arial Black, sans-serif" font-weight="800" font-size="24" letter-spacing="6" fill="#FFD700">HALL</text>
-    <text x="56" y="40" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-weight="600" font-size="9.5" letter-spacing="4.5" fill="#FFD700">DRILLING LLC</text>
-  </svg>
+  <img class="logo" src="https://zkexebxlxdzlsottepll.supabase.co/storage/v1/object/public/survey-assets/logo.png" alt="Hall Drilling LLC" width="92" height="58">
   <div>
     <div class="hd-title">Employee Survey 2026</div>
     <div class="hd-sub">Anonymous &middot; Ellenboro, WV</div>
@@ -341,6 +337,7 @@ function renderWelcome(){
   const sayText = 'Hall Drilling Employee Survey 2026. This survey is 100 percent anonymous. No name, no phone number, no login. It takes about 6 minutes. You can skip any question. Your honest answers help make Hall Drilling a better and safer place to work. Tap the big yellow Start button when you are ready.';
   app.innerHTML = `
     <div class="welcome-hero">
+      <img src="https://zkexebxlxdzlsottepll.supabase.co/storage/v1/object/public/survey-assets/logo.png" alt="Hall Drilling LLC" style="width:min(250px,64%);height:auto;display:block;margin:0 auto 4px">
       <h1>YOUR VOICE MAKES<br>HALL DRILLING BETTER</h1>
       <p>The same survey as the paper copy &mdash; now on your phone.</p>
       <div class="stripe"></div>
@@ -548,12 +545,12 @@ async function submit(){
 function renderThanks(){
   window.scrollTo(0,0);
   document.body.classList.remove('in-questions');
-  const sayText = 'Thank you. Your answers were sent anonymously. Hall Drilling leadership will use them to make this a better and safer place to work.';
+  const sayText = 'Success. Your survey was successfully submitted and recorded anonymously. Hall Drilling leadership will use the combined results to make this a better and safer place to work. Thank you.';
   app.innerHTML = `
     <div class="card center">
       <svg class="big-check" viewBox="0 0 96 96"><circle cx="48" cy="48" r="44" fill="#2E8B3A"/><path d="M28 50l14 14 26-32" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div class="sent-h">THANK YOU</div>
-      <p style="margin:10px 0 4px">Your answers were sent <b>anonymously</b>.</p>
+      <div class="sent-h">SURVEY SUBMITTED</div>
+      <p style="margin:10px 0 4px"><b>Success</b> &mdash; your survey was received ${new Date().toLocaleString([], {month:'numeric',day:'numeric',hour:'numeric',minute:'2-digit'})} and recorded <b>anonymously</b>.</p>
       <p class="q-note">Hall Drilling leadership will use the combined results to make this a better and safer place to work.</p>
       <div class="answers">
         <div style="display:flex;justify-content:center">${hearBtn(sayText)}</div>
