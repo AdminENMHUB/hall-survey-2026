@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Hall Survey 2026 — Status</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0B0B0C;--panel:#141416;--line:#2A2A2E;--yellow:#FFD700;--red:#C8102E;--grey:#D9DADB;--dim:#9B9CA0;--green:#3FA34D}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--grey);font-family:'Barlow',Arial,sans-serif;min-height:100dvh}
+  .hazard{height:7px;background:repeating-linear-gradient(45deg,var(--yellow) 0 14px,#141414 14px 28px)}
+  header{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .hd-title{font-family:'Barlow Condensed';font-weight:700;font-size:20px;color:#fff;line-height:1.1}
+  .hd-sub{font-size:12px;color:var(--dim)}
+  main{max-width:560px;margin:0 auto;padding:18px 16px 40px}
+  .hero{display:flex;gap:12px;align-items:stretch;margin-bottom:14px}
+  .hero .big{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+  .hero .num{font-family:'Barlow Condensed';font-weight:800;font-size:56px;color:var(--yellow);line-height:1}
+  .hero .lbl{font-size:12px;letter-spacing:1.5px;color:var(--dim);margin-top:6px;text-transform:uppercase}
+  .chips{display:flex;gap:10px;margin-bottom:18px}
+  .chip{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center}
+  .chip b{display:block;font-family:'Barlow Condensed';font-size:26px;color:#fff}
+  .chip span{font-size:11.5px;color:var(--dim);letter-spacing:1px;text-transform:uppercase}
+  h2{font-family:'Barlow Condensed';font-weight:700;font-size:19px;color:#fff;letter-spacing:.6px;margin:20px 0 10px}
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  th,td{padding:11px 10px;font-size:14.5px;text-align:right;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  th{background:var(--yellow);color:#0B0B0C;font-family:'Barlow Condensed';font-size:14px;letter-spacing:1px;text-transform:uppercase}
+  tr:last-child td{border-bottom:none}
+  td.zero{color:var(--red);font-weight:700}
+  td.div{color:#fff;font-weight:600}
+  .bar-row{display:flex;align-items:flex-end;gap:4px;height:70px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .bar{flex:1;background:var(--yellow);border-radius:3px 3px 0 0;min-height:3px;position:relative}
+  .bar span{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--dim)}
+  .day-lbls{display:flex;gap:4px;padding:4px 10px 0}
+  .day-lbls div{flex:1;text-align:center;font-size:10px;color:var(--dim)}
+  .btn{width:100%;border:none;border-radius:12px;padding:15px;font-family:'Barlow Condensed';font-weight:800;font-size:19px;letter-spacing:1px;cursor:pointer;margin-top:20px}
+  .btn.gold{background:var(--yellow);color:#0B0B0C}
+  .btn.ghost{background:transparent;border:2px solid var(--line);color:var(--grey);margin-top:10px}
+  .meta{text-align:center;font-size:12px;color:var(--dim);margin-top:14px}
+  .err{background:#2a1114;border:1px solid var(--red);border-radius:10px;padding:12px;font-size:14px;color:#ffd9dd;margin-top:14px}
+  .ok-flash{color:var(--green)}
+</style>
+</head>
+<body>
+<div class="hazard"></div>
+<header>
+  <img src="https://zkexebxlxdzlsottepll.supabase.co/storage/v1/object/public/survey-assets/logo.png" alt="Hall Drilling" width="84" height="53">
+  <div>
+    <div class="hd-title">Survey 2026 — Status</div>
+    <div class="hd-sub">Live completion tracking</div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="big"><div class="num" id="total">–</div><div class="lbl">Total Responses</div></div>
+  </div>
+  <div class="chips">
+    <div class="chip"><b id="digital">–</b><span>Digital</span></div>
+    <div class="chip"><b id="paper">–</b><span>Paper</span></div>
+    <div class="chip"><b id="today">–</b><span>Today</span></div>
+  </div>
+
+  <h2>By Division</h2>
+  <table>
+    <thead><tr><th>Division</th><th>Digital</th><th>Paper</th><th>Total</th><th>Avg Q&rsquo;s</th></tr></thead>
+    <tbody id="divBody"><tr><td colspan="5" style="text-align:center;color:var(--dim)">Loading…</td></tr></tbody>
+  </table>
+
+  <h2>Responses Per Day</h2>
+  <div class="bar-row" id="bars"></div>
+  <div class="day-lbls" id="dayLbls"></div>
+
+  <button class="btn gold" id="copyBtn">COPY UPDATE FOR WHATSAPP</button>
+  <button class="btn ghost" id="refreshBtn">REFRESH NOW</button>
+  <div class="meta" id="meta">Auto-refreshes every 60 seconds</div>
+  <div id="errBox"></div>
+</main>
+
+<script>
+const SB_URL = 'https://zkexebxlxdzlsottepll.supabase.co';
+const SB_KEY = 'sb_publishable_BRwfGT4QTJyuC8rasxLdoA_5ZSmQK0Y';
+const SECRET = '82609f2f8bfd1f37784b53f75a547d21';
+let last = null;
+
+function fmtDay(d){ const p=d.split('-'); return p[1].replace(/^0/,'')+'/'+p[2].replace(/^0/,''); }
+function todayET(){
+  return new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York'}).format(new Date());
+}
+
+async function load(){
+  const err = document.getElementById('errBox'); err.innerHTML='';
+  try{
+    const res = await fetch(SB_URL+'/rest/v1/rpc/survey_stats_2026',{
+      method:'POST',
+      headers:{apikey:SB_KEY,Authorization:'Bearer '+SB_KEY,'Content-Type':'application/json'},
+      body:JSON.stringify({p_secret:SECRET})
+    });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const d = await res.json();
+    last = d;
+    document.getElementById('total').textContent = d.total;
+    document.getElementById('digital').textContent = d.digital;
+    document.getElementById('paper').textContent = d.paper;
+    const t = todayET();
+    const todayRow = (d.by_day||[]).find(x=>x.day===t);
+    document.getElementById('today').textContent = todayRow ? todayRow.count : 0;
+
+    const tb = document.getElementById('divBody'); tb.innerHTML='';
+    (d.by_division||[]).forEach(r=>{
+      const tr=document.createElement('tr');
+      tr.innerHTML = '<td class="div">'+r.division+'</td>'+
+        '<td>'+r.digital+'</td><td>'+r.paper+'</td>'+
+        '<td class="'+(r.total===0?'zero':'')+'">'+r.total+'</td>'+
+        '<td>'+(r.avg_answered==null?'–':r.avg_answered)+'</td>';
+      tb.appendChild(tr);
+    });
+
+    const bars=document.getElementById('bars'), lbls=document.getElementById('dayLbls');
+    bars.innerHTML=''; lbls.innerHTML='';
+    const days=(d.by_day||[]).slice(-14);
+    if(days.length){
+      const mx=Math.max.apply(null,days.map(x=>x.count));
+      days.forEach(x=>{
+        const b=document.createElement('div'); b.className='bar';
+        b.style.height=Math.max(6,Math.round(x.count/mx*100))+'%';
+        b.innerHTML='<span>'+x.count+'</span>';
+        bars.appendChild(b);
+        const l=document.createElement('div'); l.textContent=fmtDay(x.day); lbls.appendChild(l);
+      });
+    } else {
+      bars.innerHTML='<div style="width:100%;text-align:center;color:var(--dim);font-size:13px;align-self:center">No responses yet</div>';
+    }
+
+    document.getElementById('meta').textContent =
+      'Updated '+new Date(d.updated_at).toLocaleString('en-US',{timeZone:'America/New_York',month:'numeric',day:'numeric',hour:'numeric',minute:'2-digit'})+' ET · auto-refreshes every 60s';
+  }catch(e){
+    err.innerHTML='<div class="err">Couldn&rsquo;t load stats ('+e.message+'). Check signal and tap REFRESH NOW.</div>';
+  }
+}
+
+document.getElementById('refreshBtn').onclick = load;
+
+document.getElementById('copyBtn').onclick = async function(){
+  if(!last){ await load(); if(!last) return; }
+  const d=last;
+  const dt=new Date(d.updated_at).toLocaleString('en-US',{timeZone:'America/New_York',month:'numeric',day:'numeric',hour:'numeric',minute:'2-digit'});
+  const lines=['*Hall Survey 2026 — Status ('+dt+' ET)*',
+    'Total: '+d.total+' ('+d.digital+' digital / '+d.paper+' paper)',''];
+  (d.by_division||[]).forEach(r=>{ lines.push(r.division+': '+r.total+(r.total===0?'  ⚠️':'')); });
+  const pend=(d.by_division||[]).filter(r=>r.total===0).map(r=>r.division);
+  if(pend.length) lines.push('','No responses yet: '+pend.join(', '));
+  const txt=lines.join('\n');
+  try{
+    await navigator.clipboard.writeText(txt);
+    const b=document.getElementById('copyBtn');
+    b.textContent='COPIED ✓'; b.classList.add('ok-flash');
+    setTimeout(()=>{b.textContent='COPY UPDATE FOR WHATSAPP';b.classList.remove('ok-flash');},1800);
+  }catch(e){ prompt('Copy this update:', txt); }
+};
+
+load();
+setInterval(load, 60000);
+</script>
+</body>
+</html>
